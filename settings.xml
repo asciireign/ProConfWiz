@@ -7,9 +7,11 @@
 
 <switch>
 	<Model>3400cl</Model>
+	<Ports>46</Ports>
 </switch>
 
 <VLANs>
 	<Anzahl>3</Anzahl>
+	<PortsProVlan>4</PortsProVlan>
 </VLANs>
 </data> 
