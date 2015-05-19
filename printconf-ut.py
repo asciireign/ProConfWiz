@@ -41,8 +41,12 @@ def acldef(startIP, SOIP):
 
 
 def acl2port(startIP, portA, portB):
-    for x in range(portA, (portB-portA)):
-        print portA
+    portTemp = portA
+    for x in range(0, (portB-portA+1)):
+        print 'interface {}'.format(portTemp)
+	print '   access-group "{}" in'.format(startIP)
+	print '   no lacp'
+	portTemp = portTemp+1
 
 def routeroptions():
     print 'logging 10.140.{}.10'.format(SOIP)
@@ -64,6 +68,7 @@ fault-finder duplex-mismatch-FDx sensitivity high
 for x in range(0, int(VLANzahl)):
     vlandef(startIP, SOIP, portA, portB)
     acldef(startIP, SOIP)
+    acl2port(startIP, portA, portB)
     portA = portA+portsproVlan
     portB = portB+portsproVlan
     startIP = startIP+1
